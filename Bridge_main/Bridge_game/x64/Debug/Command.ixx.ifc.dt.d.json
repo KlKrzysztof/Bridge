@@ -1,0 +1,10 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\repozytoria\\brydż\\bridge_main\\bridge_game\\engine\\command.ixx",
+        "ProvidedModule": "Command",
+        "Includes": [],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
