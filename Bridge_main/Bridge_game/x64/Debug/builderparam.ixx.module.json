@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\BuilderParam.ixx.obj",
+            "outputs": [
+                "G:\\Repozytoria\\Brydż\\Bridge_main\\Bridge_game\\x64\\Debug\\vc143.pdb",
+                "x64\\Debug\\",
+                "G:\\Repozytoria\\Brydż\\Bridge_main\\Bridge_game\\x64\\Debug\\BuilderParam.ixx.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "BuilderParam",
+                    "source-path": "g:\\repozytoria\\brydż\\bridge_main\\bridge_game\\builderparam.ixx",
+                    "is-interface": true
+                }
+            ],
+            "requires": [
+                {
+                    "logical-name": "string",
+                    "source-path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\string",
+                    "lookup-method": "include-angle",
+                    "unique-on-source-path": true
+                }
+            ]
+        }
+    ]
+}

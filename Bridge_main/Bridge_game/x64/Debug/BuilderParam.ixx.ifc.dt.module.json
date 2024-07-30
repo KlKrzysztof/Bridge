@@ -1,0 +1,11 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "g:\\repozytoria\\brydż\\bridge_main\\bridge_game\\builderparam.ixx",
+        "ProvidedModule": "BuilderParam",
+        "ImportedModules": [],
+        "ImportedHeaderUnits": [
+            "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\string"
+        ]
+    }
+}

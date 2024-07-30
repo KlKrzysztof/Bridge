@@ -5,13 +5,15 @@
 #include <SFML/System.hpp>
 #include <fstream>
 #include <string>
-import State_Machine;
-#include "Scene.h"
+//import State_Machine;
+//#include "Scene.h"
 #include <filesystem>
 #include <thread>
-#include "GameControler.h"
-#include "Auction.h"
+//#include "GameControler.h"
+//#include "Auction.h"
 //#include "Spritesheet.h";
+#include "../UserInterface/UserInterface.h"
+#include "EngineItem.h"
 
 namespace engine {
 
@@ -20,11 +22,14 @@ namespace engine {
 		//Class atributes
 
 		//Window
-		sf::RenderWindow* window;
-		sf::VideoMode videoMode;
-		sf::Event ev;
-		std::string resolution;
+		sf::RenderWindow* _window;
+		sf::VideoMode _videoMode;
+		sf::Event _ev;
+		std::string _resolution;
 
+		std::vector<engine::EngineItem*> _engineItem;
+
+		/*
 		//Scene
 		bool isGameActive;
 		sf::Sprite background;
@@ -41,23 +46,27 @@ namespace engine {
 		GameControler* _game;
 
 		Spritesheet s;
+		*/
 
-		void startGame(deckVersion version, GameSettings settings);
+		//void startGame(deckVersion version, GameSettings settings);
 
-		GameEngine();
+		GameEngine(); // to do: loading settings
 
 	public:
 
-		static std::filesystem::path textureLocalisation;
+		inline static std::filesystem::path _textureLocalisation = "../Texture/";;
 
 		//Constructor and Destructor
 		GameEngine(GameEngine&) = delete;
 		GameEngine(GameEngine&&) = delete;
 		GameEngine& operator=(GameEngine&) = delete;
 
-		~GameEngine();
+		//~GameEngine();
 
-		static GameEngine& getInstance();
+		static GameEngine& getInstance() {
+			static engine::GameEngine item;
+			return item;
+		}
 
 		//Main functions
 		void update();
@@ -65,17 +74,16 @@ namespace engine {
 		void render();
 
 		//Minor functions
-		void pollEvent();
+		//void pollEvent();
 
 		//Accesors
 		const bool running();
 
-		//interface elements for commands
-		void changeScene(std::filesystem::path sceneSource);
+		//Interface elements for commands
+		//void changeScene(std::filesystem::path sceneSource);
 
-
+		//Engine items manipulation
+		static void addItem(engine::EngineItem* item);
 	};
 }
-
-
 

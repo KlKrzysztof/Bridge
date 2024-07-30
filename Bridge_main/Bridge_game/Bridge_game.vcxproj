@@ -143,7 +143,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BuilderParam.ixx" />
     <ClCompile Include="Engine\Command.ixx" />
+    <ClCompile Include="Engine\EngineItem.cpp" />
     <ClCompile Include="Engine\Game_Engine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UserInterface\CanvasItem.cpp" />
@@ -151,6 +153,7 @@
     <ClCompile Include="UserInterface\UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\EngineItem.h" />
     <ClInclude Include="Engine\Game_Engine.h" />
     <ClInclude Include="UserInterface\CanvasItem.h" />
     <ClInclude Include="UserInterface\Scene.h" />

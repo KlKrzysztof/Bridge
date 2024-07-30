@@ -1,9 +1,7 @@
 ﻿  Trwa skanowanie źródeł pod kątem zależności modułów...
-  Command.ixx
-G:\Repozytoria\Bryd┐\Bridge_main\Bridge_game\Engine\Game_Engine.h(9,10): fatal  error C1083: Nie mo┐na otworzyŠ pliku do│╣cz: 'Scene.h': No such file or directory
-G:\Repozytoria\Brydż\Bridge_main\Bridge_game\Engine\Game_Engine.h(9,10): error C1083: Nie można otworzyć pliku dołącz: 'Scene.h': No such file or directory
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(503,5): warning MSB8074: Nie można odczytać pliku zależności modułu x64\Debug\Command.ixx.module.json: Oczekiwany element „root” z przestrzeni nazw „”.. Napotkano „None” o nazwie „”, przestrzeń nazw „”.  Kolejność kompilowania może być niepoprawna.
-  Trwa kompilowanie…
-  Command.ixx
-G:\Repozytoria\Brydż\Bridge_main\Bridge_game\Engine\Game_Engine.h(8,21): error C2230: nie można znaleźć modułu „State_Machine”
-G:\Repozytoria\Brydż\Bridge_main\Bridge_game\Engine\Game_Engine.h(9,10): error C1083: Nie można otworzyć pliku dołącz: 'Scene.h': No such file or directory
+  Game_Engine.cpp
+  Scene.cpp
+  UserInterface.cpp
+  main.cpp
+  Generowanie kodu...
+  Bridge_game.vcxproj -> G:\Repozytoria\Brydż\Bridge_main\x64\Debug\Bridge_game.exe

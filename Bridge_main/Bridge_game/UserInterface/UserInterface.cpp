@@ -2,7 +2,9 @@
 #include "../Engine/Game_Engine.h"
 
 ui::UserInterface::UserInterface(): _scene(nullptr) {
-	this->loadTexture();
+	std::filesystem::path path = engine::GameEngine::_textureLocalisation;
+
+	this->loadTexture(path);
 }
 
 void ui::UserInterface::loadTexture(std::filesystem::path path)
@@ -41,9 +43,9 @@ void ui::UserInterface::setScene(std::filesystem::path path)
     std::smatch itemMatch;
     std::regex paramRegex("\\s*([a-zA-Z-]+):\\s*([a-zA-Z0-9-]+)\\s");
     std::smatch paramMatch;
-    ui::SceneBuilder* currentBuilder;
+    ui::SceneBuilder* currentBuilder = nullptr;
     std::string type;
-	ui::UserInterface::BuilderParam builderParam;
+	ui::BuilderParam builderParam;
 
     if (_scene != nullptr)
         delete _scene;
@@ -95,14 +97,31 @@ void ui::UserInterface::setScene(std::filesystem::path path)
     }
 }
 
+void ui::UserInterface::addItem(ui::CanvasItem* item)
+{
+	this->_scene->addCanvasItem(item);
+}
+
+void ui::UserInterface::deleteItem(ui::CanvasItem* item)
+{
+
+}
+
+void ui::UserInterface::dropScene()
+{
+	delete this->_scene;
+
+	this->_scene = nullptr;
+}
+
 sf::Texture* ui::UserInterface::getTexture(std::string textureName)
 {
 	return &_textureMap[textureName];
 }
 
-ui::UserInterface::BuilderParam ui::UserInterface::splitParam(std::string params)
+ui::BuilderParam ui::UserInterface::splitParam(std::string params)
 {
-	ui::UserInterface::BuilderParam builderParam;
+	ui::BuilderParam builderParam;
 	std::regex paramRegex("\\s*([a-zA-Z-]+):\\s*([a-zA-Z0-9-\\\"\\s_]+)");
 	std::sregex_iterator paramIterator(params.begin(), params.end(), paramRegex);
 	std::regex coordinatesRegex("(\\d+)x(\\d+)");

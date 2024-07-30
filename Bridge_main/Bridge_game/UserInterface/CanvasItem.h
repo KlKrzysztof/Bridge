@@ -8,19 +8,6 @@ namespace engine {
 
 namespace ui {
 
-	class CanvasText: public CanvasItem {
-		sf::Text _text;
-		std::string _content;
-
-	public:
-		CanvasText(std::string text = "", sf::Vector2i pos = sf::Vector2i(0, 0), sf::Font font = sf::Font(), int fontSize = 50);
-		
-		virtual void setText(std::string text);
-		virtual std::string getText();
-
-		virtual void render(sf::RenderWindow* window);
-	};
-
 	class CanvasItem
 	{
 		bool _visibility;
@@ -28,7 +15,7 @@ namespace ui {
 		sf::Vector2i _position;
 		sf::Vector2i _dimention;
 		engine::EngineItem* _engineItem;
-		ui::CanvasText* _canvasText;
+		//ui::CanvasText* _canvasText;
 
 	public:
 		CanvasItem(sf::Vector2i pos = sf::Vector2i(0, 0), sf::Texture* texture = nullptr, engine::EngineItem* engineItem = nullptr, sf::Vector2i dimention = sf::Vector2i(0, 0), int zIndex = 0, bool visibility = true);
@@ -68,6 +55,22 @@ namespace ui {
 	};
 
 
+	class CanvasText : public CanvasItem {
+		sf::Text _text;
+		std::string _content;
 
+	public:
+		CanvasText(std::string text = "", sf::Vector2i pos = sf::Vector2i(0, 0), sf::Font font = sf::Font(), int fontSize = 50);
+
+		virtual void setText(std::string text);
+		virtual std::string getText();
+
+		virtual void setFont(sf::Font* font);
+
+		virtual void setFontSize(int size);
+		virtual int getFontSize();
+
+		virtual void render(sf::RenderWindow* window);
+	};
 }
 

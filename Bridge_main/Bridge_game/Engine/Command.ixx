@@ -1,4 +1,4 @@
-#include "Game_Engine.h"
+#include "../UserInterface/UserInterface.h"
 export module Command;
 import <filesystem>;
 
@@ -10,17 +10,16 @@ namespace engine {
 	};
 
 	export class ChangeSceneCommand : public ICommand {
-		GameEngine& _target;
+		ui::UserInterface& _target;
 		std::filesystem::path _path;
 
 	public:
-		ChangeSceneCommand(std::filesystem::path path): _target(engine::GameEngine::getInstance()), _path(path) {}
+		ChangeSceneCommand(std::filesystem::path path): _target(ui::UserInterface::getInstance()), _path(path) {}
 
 		virtual void execute() {
-			_target.changeScene(_path);
+			_target.setScene(_path);
 		}
 	};
 
-	export class 
 
 }

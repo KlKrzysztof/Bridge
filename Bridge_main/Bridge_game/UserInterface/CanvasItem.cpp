@@ -3,7 +3,7 @@
 //ui::CanvasItem::CanvasItem(): _visibility(true), _zIndex(0), _position(0, 0), _dimention(0, 0), _sprite() {}
 
 ui::CanvasItem::CanvasItem(sf::Vector2i pos, sf::Texture* texture, engine::EngineItem* engineItem, sf::Vector2i dimention, int zIndex, bool visibility):
-	_visibility(visibility), _zIndex(zIndex), _sprite(*texture), _position(pos), _dimention(dimention)
+	_visibility(visibility), _zIndex(zIndex), /*_sprite(*texture),*/ _position(pos), _dimention(dimention)
 {
 	if (dimention != sf::Vector2i(0, 0)) {
 		_dimention.x = texture->getSize().x;
@@ -78,6 +78,21 @@ void ui::CanvasText::setText(std::string text)
 std::string ui::CanvasText::getText()
 {
 	return _content;
+}
+
+void ui::CanvasText::setFont(sf::Font* font)
+{
+	_text.setFont(*font);
+}
+
+void ui::CanvasText::setFontSize(int size)
+{
+	this->_text.setCharacterSize(size);
+}
+
+int ui::CanvasText::getFontSize()
+{
+	return this->getFontSize();
 }
 
 void ui::CanvasText::render(sf::RenderWindow* window)

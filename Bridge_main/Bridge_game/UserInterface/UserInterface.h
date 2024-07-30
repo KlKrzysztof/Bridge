@@ -6,6 +6,7 @@
 #include <iostream>
 #include <map>
 #include <filesystem>
+import BuilderParam;
 
 namespace ui {
 
@@ -15,9 +16,9 @@ namespace ui {
 
 		std::map<std::string, sf::Texture> _textureMap;
 
-		UserInterface();
+		UserInterface(); //To do: loading settings
 
-		void loadTexture(std::filesystem::path path = engine::GameEngine::textureLocalisation);
+		void loadTexture(std::filesystem::path path);
 
 	public:
 		UserInterface(UserInterface&) = delete;
@@ -29,23 +30,15 @@ namespace ui {
 
 		void setScene(std::filesystem::path path);
 
-		void addItem();
-		void deleteItem();
-		void changeScene();
+		void addItem(ui::CanvasItem* item);
+		void deleteItem(ui::CanvasItem* item); //to do: deleting by pointer
 		void dropScene();
 
 		sf::Texture* getTexture(std::string);
 
-		struct BuilderParam {
-			bool visibility;
-			int zIndex;
-			sf::Vector2i position;
-			sf::Vector2i dimention;
-			std::string text;
-			std::string textureName;
-		};
+		
 
-		ui::UserInterface::BuilderParam splitParam(std::string params);
+		ui::BuilderParam splitParam(std::string params);
 	};
 
 }

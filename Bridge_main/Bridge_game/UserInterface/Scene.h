@@ -3,40 +3,25 @@
 #include "CanvasItem.h"
 #include <filesystem>
 #include <regex>
+//#include "../UserInterface/UserInterface.h"
+import BuilderParam;
 
 namespace ui {
 
-	class UserInterface::BuilderParam;
 
 	class Scene
 	{
 		//Scene objects
 		std::vector<CanvasItem*> _sceneItems;
 
-		//Texts
-		std::vector<sf::Text> _sceneTexts;
-
-		std::vector < Link<Window, ListButton>> _windowLinks;
-
-		//Pointer on font from Game Engine
-		sf::Font* _font;
-		int* _fontSize;
-
-		//Window Resolution
-		sf::Vector2u _resolution;
+		//std::vector < Link<Window, ListButton>> _windowLinks;
 
 		unsigned int _center;
 		unsigned int _leftColumn;
 		unsigned int _rightColumn;
 
-		//Creating objects on scene
-		//void setObject(std::vector<std::string> properties);
 		//inline unsigned int getPredefPosition(std::string predef);
 	public:
-
-		//Load scene
-		Scene(/*std::filesystem::path fileName, sf::Font* font, int* fontSize, sf::Vector2u resolution*/);
-
 		//Delete elements
 		~Scene();
 
@@ -46,26 +31,19 @@ namespace ui {
 		//Rendering elements
 		void renderScene(sf::RenderWindow* window);
 
-		Command<Header, std::string, float, Tail> checkEvent(sf::Vector2i MousePos, sf::Event::EventType);
+		//Command<Header, std::string, float, Tail> checkEvent(sf::Vector2i MousePos, sf::Event::EventType);
 
 		//void commandExecutior(Command<Header, std::string, float, Tail>, int);
 
 		//add object to scene
 		void addCanvasItem(ui::CanvasItem* item);
-
-		sf::Font* getFont();
-		int* getFontSize();
-		sf::Vector2u getResolution();
 	};
 
 
 	class SceneBuilder {
-	protected:
-		
-		
 
 	public:
-		virtual void build(ui::UserInterface::BuilderParam buildParam, ui::Scene* scene)=0;
+		virtual void build(ui::BuilderParam buildParam, ui::Scene* scene)=0;
 
 		static SceneBuilder* getInstance();
 	};
@@ -73,7 +51,7 @@ namespace ui {
 	class SceneBackgroundBuilder: public SceneBuilder {
 
 	public:
-		virtual void build(ui::UserInterface::BuilderParam buildParam, ui::Scene* scene);
+		virtual void build(ui::BuilderParam buildParam, ui::Scene* scene);
 
 		static ui::SceneBuilder* getInstance();
 	};
@@ -81,7 +59,7 @@ namespace ui {
 	class SceneWindowBuilder : public SceneBuilder {
 
 	public:
-		virtual void build(ui::UserInterface::BuilderParam buildParam, ui::Scene* scene);
+		virtual void build(ui::BuilderParam buildParam, ui::Scene* scene);
 
 		static ui::SceneBuilder* getInstance();
 	};
@@ -89,7 +67,7 @@ namespace ui {
 	class SceneSpritesheetBuilder : public SceneBuilder {
 
 	public:
-		virtual void build(ui::UserInterface::BuilderParam buildParam, ui::Scene* scene);
+		virtual void build(ui::BuilderParam buildParam, ui::Scene* scene);
 
 		static ui::SceneBuilder* getInstance();
 	};
@@ -97,7 +75,7 @@ namespace ui {
 	class SceneButtonBuilder : public SceneBuilder {
 
 	public:
-		virtual void build(ui::UserInterface::BuilderParam buildParam, ui::Scene* scene);
+		virtual void build(ui::BuilderParam buildParam, ui::Scene* scene);
 
 		static ui::SceneBuilder* getInstance();
 	};
@@ -105,7 +83,7 @@ namespace ui {
 	class SceneTextBuilder : public SceneBuilder {
 
 	public:
-		virtual void build(ui::UserInterface::BuilderParam buildParam, ui::Scene* scene);
+		virtual void build(ui::BuilderParam buildParam, ui::Scene* scene);
 
 		static ui::SceneBuilder* getInstance();
 	};
